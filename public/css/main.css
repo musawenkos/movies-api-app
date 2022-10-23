@@ -1,0 +1,30 @@
+.navbar-nav .nav-item .nav-link {
+    padding-right:21px;
+    padding-left:21px;
+    color:white;
+    border-radius:22px;
+    font-weight: bold;
+}
+.navbar-nav .nav-item .nav-link:hover {
+    color:black;
+    background-color:white;
+    border-radius:22px;
+}
+
+#movie-trailer{
+    /* background-image: url(../Image/bg.jpg); */
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+#movie-trailer-info{
+    position:relative;
+    top:70%;
+}
+#movie-trailer-video{
+    position:relative;
+    top:20%;
+}
