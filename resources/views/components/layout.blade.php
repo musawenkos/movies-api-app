@@ -41,10 +41,10 @@
                   </div>
                   <form class="d-flex me-2">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-success" type="submit">Search</button>
                   </form>
                   <div class="d-flex">
-                    <button class="btn btn-outline-info">Log In</button>
+                    <button class="btn btn-info">Log In</button>
                   </div>
                 </div>
               </nav>

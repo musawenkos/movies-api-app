@@ -1,9 +1,12 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
 .navbar-nav .nav-item .nav-link {
     padding-right:21px;
     padding-left:21px;
     color:white;
     border-radius:22px;
-    font-weight: bold;
+    font-weight: bolder;
 }
 .navbar-nav .nav-item .nav-link:hover {
     color:black;
@@ -22,9 +25,27 @@
 
 #movie-trailer-info{
     position:relative;
-    top:70%;
+    top:60%;
+    height: 40%;
 }
 #movie-trailer-video{
     position:relative;
     top:20%;
+    height: 80%;
+}
+
+.btn-primaryBgColor{
+    background-color: #282B33;
+    color:white;
+
+}
+/* FIXME: Simple way to add hover on existing css class */
+.btn-primaryBgColor:hover{
+    background-color: white;
+    color:#282B33;
+
+}
+.btn-secondaryBgColor{
+    background-color: white;
+    color:#282B33;
 }
