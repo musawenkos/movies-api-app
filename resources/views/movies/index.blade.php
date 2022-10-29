@@ -24,46 +24,17 @@
                     <div class="text-white fw-bold fs-4 ps-4">{{$key}}</div>
                     <div id="{{strtolower($key)}}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
                         <div class="carousel-inner" style="top: 15px;">
-                          <div class="carousel-item active">
-                            <div class="d-flex flex-row justify-content-sm-center">
-                                <div class="col-md-2 me-2 col-lg-2">
-                                    <img src="images/Athena.jpg" height="220" width="200" alt="..." >
-                                </div>
-                                <div class="col-md-2 me-2 col-lg-2">
-                                    <img src="images/batman and superman-battle of the super sons.jpg" height="220" width="200" alt="..." >
-                                </div>
-                                <div class="col-md-2 me-2 col-lg-2 me-2">
-                                    <img src="images/57394.jpg" height="220" width="200" alt="..." >
-                                </div>
+                            @for ($i = 0; $i < count($category); $i++)
+                                @if ($i == 0)
+                                    <div class="carousel-item active">
+                                        
+                                    </div>
+                                @else
+                                    <div class="carousel-item">
 
-                                <div class="col-md-2 me-2 col-lg-2">
-                                    <img src="images/85182.jpg" height="220" width="200" alt="..." >
-                                </div>
-                                <div class="col-md-2 me-2 col-lg-2">
-                                    <img src="images/blackout.jpg" height="220" width="200" alt="..." >
-                                </div>
-                            </div>
-                          </div>
-                          <div class="carousel-item">
-                            <div class="d-flex flex-row justify-content-sm-center">
-                                <div class="col-md-2 me-2 col-lg-2">
-                                    <img src="images/blackout.jpg" height="220" width="200" alt="..." >
-                                </div>
-                                <div class="col-md-2 me-2 col-lg-2">
-                                    <img src="images/batman and superman-battle of the super sons.jpg" height="220" width="200" alt="..." >
-                                </div>
-                                <div class="col-md-2 me-2 col-lg-2 me-2">
-                                    <img src="images/57394.jpg" height="220" width="200" alt="..." >
-                                </div>
-
-                                <div class="col-md-2 me-2 col-lg-2">
-                                    <img src="images/85182.jpg" height="220" width="200" alt="..." >
-                                </div>
-                                <div class="col-md-2 me-2 col-lg-2">
-                                    <img src="images/blackout.jpg" height="220" width="200" alt="..." >
-                                </div>
-                            </div>
-                          </div>
+                                    </div>
+                                @endif
+                            @endfor
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#{{strtolower($key)}}" data-bs-slide="prev">
                           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -89,5 +60,50 @@
             <img class="rounded" src="{{asset($item['img_url'])}}" height="250" width="150" alt="">
     </div>
     @endforeach
+</div>
+
+
+
+<div class="carousel-inner" style="top: 15px;">
+    <div class="carousel-item active">
+        <div class="d-flex flex-row justify-content-sm-center">
+            <div class="col-md-2 me-2 col-lg-2">
+                <img src="images/Athena.jpg" height="220" width="200" alt="..." >
+            </div>
+            <div class="col-md-2 me-2 col-lg-2">
+                <img src="images/batman and superman-battle of the super sons.jpg" height="220" width="200" alt="..." >
+            </div>
+            <div class="col-md-2 me-2 col-lg-2 me-2">
+                <img src="images/57394.jpg" height="220" width="200" alt="..." >
+            </div>
+
+            <div class="col-md-2 me-2 col-lg-2">
+                <img src="images/85182.jpg" height="220" width="200" alt="..." >
+            </div>
+            <div class="col-md-2 me-2 col-lg-2">
+                <img src="images/blackout.jpg" height="220" width="200" alt="..." >
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+    <div class="d-flex flex-row justify-content-sm-center">
+        <div class="col-md-2 me-2 col-lg-2">
+            <img src="images/blackout.jpg" height="220" width="200" alt="..." >
+        </div>
+        <div class="col-md-2 me-2 col-lg-2">
+            <img src="images/batman and superman-battle of the super sons.jpg" height="220" width="200" alt="..." >
+        </div>
+        <div class="col-md-2 me-2 col-lg-2 me-2">
+            <img src="images/57394.jpg" height="220" width="200" alt="..." >
+        </div>
+
+        <div class="col-md-2 me-2 col-lg-2">
+            <img src="images/85182.jpg" height="220" width="200" alt="..." >
+        </div>
+        <div class="col-md-2 me-2 col-lg-2">
+            <img src="images/blackout.jpg" height="220" width="200" alt="..." >
+        </div>
+    </div>
+    </div>
 </div>
  --}}
