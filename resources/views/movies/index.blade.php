@@ -24,14 +24,27 @@
                     <div class="text-white fw-bold fs-4 ps-4">{{$key}}</div>
                     <div id="{{strtolower($key)}}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
                         <div class="carousel-inner" style="top: 15px;">
-                            @for ($i = 0; $i < count($category); $i++)
+                            {{-- {{print($category[0]['poster_path'])}} --}}
+                            @for ($i = 0; $i < count($category); $i += 5)
                                 @if ($i == 0)
                                     <div class="carousel-item active">
-                                        
+                                        <div class="d-flex flex-row justify-content-sm-center">
+                                            @for ($i = 0; $i < 5; $i++)
+                                                <div class="col-md-2 me-2 col-lg-2">
+                                                    <img src="https://image.tmdb.org/t/p/original/{{$category[$i]['poster_path']}}" height="220" width="200" alt="..." >
+                                                </div>
+                                            @endfor
+                                        </div>
                                     </div>
                                 @else
                                     <div class="carousel-item">
-
+                                        <div class="d-flex flex-row justify-content-sm-center">
+                                            @for ($j = $i; $j < ($i + 5); $j++)
+                                                <div class="col-md-2 me-2 col-lg-2">
+                                                    <img src="https://image.tmdb.org/t/p/original/{{$category[$j]['poster_path']}}" height="220" width="200" alt="..." >
+                                                </div>
+                                            @endfor
+                                        </div>
                                     </div>
                                 @endif
                             @endfor
