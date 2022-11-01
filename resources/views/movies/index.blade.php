@@ -30,8 +30,21 @@
                                     <div class="carousel-item active">
                                         <div class="d-flex flex-row justify-content-sm-center">
                                             @for ($i = 0; $i < 5; $i++)
-                                                <div class="col-md-2 me-2 col-lg-2">
-                                                    <img src="https://image.tmdb.org/t/p/original/{{$category[$i]['poster_path']}}" height="220" width="200" alt="..." >
+                                                <div x-data="{ open: false }" class="col-md-2 me-2 col-lg-2">
+                                                    <img  x-on:mouseout="open = false" x-on:mouseover="open = true" src="https://image.tmdb.org/t/p/original/{{$category[$i]['poster_path']}}" height="220" width="200" alt="..." >
+                                                    <div x-show="open" id="{{$category[$i]['id']}}" class="movie-info">
+                                                        <div style="font-size: 14px; font-weight:bolder">{{$category[$i]['title']}}</div>
+                                                        <div class="d-flex bg-gray bg-info mb-2">
+                                                            <div class="col-sm-3 me-2">
+                                                                {{$category[$i]['vote_average']}}
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                Release Date: {{$category[$i]['release_date']}}
+                                                            </div>
+
+                                                        </div>
+                                                        <div style="width: fit-content;font-size: 10px">{{$category[$i]['overview']}}</div>
+                                                    </div>
                                                 </div>
                                             @endfor
                                         </div>
@@ -40,8 +53,21 @@
                                     <div class="carousel-item">
                                         <div class="d-flex flex-row justify-content-sm-center">
                                             @for ($j = $i; $j < ($i + 5); $j++)
-                                                <div class="col-md-2 me-2 col-lg-2">
-                                                    <img src="https://image.tmdb.org/t/p/original/{{$category[$j]['poster_path']}}" height="220" width="200" alt="..." >
+                                                <div x-data="{ open: false }" class="col-md-2 me-2 col-lg-2">
+                                                    <img x-on:mouseout="open = false" x-on:mouseover="open = true" src="https://image.tmdb.org/t/p/original/{{$category[$j]['poster_path']}}" height="220" width="200" alt="..." >
+                                                    <div x-show="open" id="{{$category[$j]['id']}}" class="movie-info">
+                                                        <div style="font-size: 14px; font-weight:bolder">{{$category[$j]['title']}}</div>
+                                                        <div class="d-flex bg-gray bg-info mb-2">
+                                                            <div class="col-sm-3 me-2">
+                                                                {{$category[$j]['vote_average']}}
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                Release Date: {{$category[$j]['release_date']}}
+                                                            </div>
+
+                                                        </div>
+                                                        <div style="width: fit-content;font-size: 10px">{{$category[$j]['overview']}}</div>
+                                                    </div>
                                                 </div>
                                             @endfor
                                         </div>
