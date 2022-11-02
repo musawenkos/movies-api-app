@@ -25,7 +25,7 @@
         <header>
             <nav id="nav-layout" class="navbar fixed-top navbar-expand-sm ">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="/"><img src="images/logo.png" height="70" width="70" style="border-radius:22px;"/></a>
+                  <a class="navbar-brand" href="/"><img src="{{asset('images/logo.png')}}" height="70" width="70" style="border-radius:22px;"/></a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                   </button>

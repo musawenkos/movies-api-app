@@ -2,6 +2,7 @@
 
 use App\Models\GenreList;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppController;
 use App\Http\Controllers\MovieAppController;
 
 /*
@@ -15,4 +16,6 @@ use App\Http\Controllers\MovieAppController;
 |
 */
 
-Route::get('/', [MovieAppController::class,'index']);
+Route::get('/', [AppController::class,'index']);
+
+Route::get('/hpw/movies', [MovieAppController::class,'index']);
