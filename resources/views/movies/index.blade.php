@@ -1,5 +1,6 @@
 <x-layout>
     <div class="vw-100">
+        @include('partials._search')
         <div class="ms-4 mt-3" >
             @foreach ($categories as $key => $category)
                 <div class="mw-80 ms-2 me-2 mb-3">

@@ -1,5 +1,5 @@
 <x-layout>
-    <div id="movie-trailer" class="d-flex flex-row text-white text-center vw-100 vh-100 p-5" style=" background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)), url(https://image.tmdb.org/t/p/original/{{$homeRandMovie['poster_path']}}); ">
+    <div id="movie-trailer" class="d-flex flex-row text-white text-center vw-95 vh-100 " style=" background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)), url(https://image.tmdb.org/t/p/original/{{$homeRandMovie['poster_path']}}); ">
         <div id="movie-trailer-info" class="w-50">
             <div class="align-bottom ">
                 <div class="display-6 mb-4">{{$homeRandMovie['title']}}</div>
