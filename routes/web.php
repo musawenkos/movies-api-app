@@ -4,6 +4,7 @@ use App\Models\GenreList;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\MovieAppController;
+use App\Http\Controllers\SeriesAppController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,9 @@ Route::get('/', [AppController::class,'index']);
 Route::get('/hpw/movies', [MovieAppController::class,'index']);
 
 Route::get('/hpw/movies/search', [MovieAppController::class,'search']);
+
+
+
+Route::get('/hpw/series', [SeriesAppController::class,'index']);
+/*
+Route::get('/hpw/movies/search', [MovieAppController::class,'search']); */

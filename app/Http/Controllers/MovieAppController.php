@@ -26,6 +26,7 @@ class MovieAppController extends Controller
 
         return view('movies.index',[
             'heading' => 'Category',
+            'media' => 'movies',
             'categories' => $data
         ]);
     }

@@ -61,7 +61,7 @@
                                                 <div class="col-md-2 me-2 col-lg-2">
                                                     <a href="/movies/{{$category[$j]['id']}}"><img src="https://image.tmdb.org/t/p/original/{{$category[$j]['poster_path']}}" height="220" width="190" alt="..." ></a>
                                                     <div>
-                                                        <div style="font-size: 14px; font-weight:bolder;color:white;text-align:center">{{$category[$j]['title']}}</div>
+                                                        <div class="text-truncate" style="font-size: 14px; font-weight:bolder;color:white;text-align:center">{{$category[$j]['title']}}</div>
                                                         <div class="d-flex justify-content-center bg-gray bg-info mb-2">
                                                             <div class="col-sm-4">
                                                                 <i class="fa-solid fa-star"></i>{{$category[$j]['vote_average']}}

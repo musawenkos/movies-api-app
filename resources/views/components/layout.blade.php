@@ -35,10 +35,10 @@
                         <a class="nav-link" href="/">Home</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link " href="/hpw/series">Series</a>
+                        <a class="nav-link" href="/hpw/movies">Movies</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="/hpw/movies">Movies</a>
+                        <a class="nav-link " href="/hpw/series">Series</a>
                       </li>
                     </ul>
                   </div>
