@@ -18,4 +18,7 @@ use App\Http\Controllers\MovieAppController;
 
 Route::get('/', [AppController::class,'index']);
 
+
 Route::get('/hpw/movies', [MovieAppController::class,'index']);
+
+Route::get('/hpw/movies/search', [MovieAppController::class,'search']);

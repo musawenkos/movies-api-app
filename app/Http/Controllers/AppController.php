@@ -40,4 +40,6 @@ class AppController extends Controller
             'categories' => $data
         ]);
     }
+
+    
 }
