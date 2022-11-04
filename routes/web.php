@@ -27,5 +27,5 @@ Route::get('/hpw/movies/search', [MovieAppController::class,'search']);
 
 
 Route::get('/hpw/series', [SeriesAppController::class,'index']);
-/*
-Route::get('/hpw/movies/search', [MovieAppController::class,'search']); */
+
+Route::get('/hpw/tv/search', [SeriesAppController::class,'search']);
