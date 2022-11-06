@@ -10,6 +10,17 @@ use Illuminate\Support\Facades\Http;
 
 class AppController extends Controller
 {
+
+    public function getGenreNameList($genre_ids){
+        $genre_name = [];
+        for ($i=0; $i < count($genre_ids); $i++) {
+            $gName = GenreList::find($genre_ids[$i]);
+            $genre_name[$i] = $gName->name;
+        }
+
+        return $genre_name;
+    }
+
     //Show all movies
     public function index(){
         $data = [];
@@ -26,11 +37,15 @@ class AppController extends Controller
         }
         $genreList = GenreList::all();
         $randomGenre = $genreList[Rand(0, count($genreList)-1)]->name;
-        //dd($data[$randomGenre][Rand(0, count($data[$randomGenre])-1)]);
         $homeRandMovie = $data[$randomGenre][Rand(0, count($data[$randomGenre])-1)];
+
         $urlMovie = 'https://api.themoviedb.org/3/movie/' . $homeRandMovie['id'] . '/videos?api_key=' . env('API_KEY') .'&append_to_response=videos';
         $responsesVid = Http::get($urlMovie)->json()["results"];
-        //dd($responsesVid);
+        $homeRandMovie['genre_name'] = $this->getGenreNameList($homeRandMovie['genre_ids']);
+        //dd($homeRandMovie);
+
+
+
 
 
         return view('home.index',[
@@ -41,5 +56,5 @@ class AppController extends Controller
         ]);
     }
 
-    
+
 }

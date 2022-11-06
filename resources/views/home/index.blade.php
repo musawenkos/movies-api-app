@@ -3,11 +3,7 @@
         <div id="movie-trailer-info" class="w-50">
             <div class="align-bottom ">
                 <div class="display-6 mb-4">{{$homeRandMovie['title']}}</div>
-                <div class="d-flex flex-row justify-content-center">
-                    <button class="btn me-2 btn-primaryBgColor">Action</button>
-                    <button class="btn btn-primaryBgColor me-2">Crime</button>
-                    <button class="btn btn-primaryBgColor me-2">Drama</button>
-                </div>
+                <x-genres :genre_name="$homeRandMovie['genre_name']"/>
                 <div class="mt-4">{{$homeRandMovie['overview']}}</div>
             </div>
         </div>
