@@ -11,7 +11,7 @@
                                 <i class="fa-solid fa-star"></i>{{$results[$i]["vote_average"]}}
                             </div>
                             <div class="col-sm-6">
-                                {{$results[$i]["release_date"]}}
+                                {{$results[$i]["release_date"] == null ? '' : $results[$i]["release_date"]}}
                             </div>
                         </div>
                     </div>

@@ -43,7 +43,18 @@
                     </ul>
                   </div>
                   <div class="d-flex">
-                    <button class="btn btn-info">Log In</button>
+                    @auth
+                        <button class="btn btn-info fs-5 text-white disabled"><i class="fa fa-user" aria-hidden="true"></i> {{' ' . auth()->user()->name}}</button>
+                        <form method="POST" action="/logout" class="inline">
+                            @csrf
+                            <button class="btn btn-danger fs-5 text-white ms-2" type="submit" >
+                                <i class="fa-solid fa-door-closed"></i>Logout
+                            </button>
+                        </form>
+                    @else
+                        <a href="/register" class="btn btn-danger me-2">Register</a>
+                        <a href="/login" class="btn btn-info">Log In</a>
+                    @endauth
                   </div>
                 </div>
               </nav>
