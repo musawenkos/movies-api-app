@@ -23,6 +23,8 @@ Route::get('/', [AppController::class,'index']);
 
 Route::get('/hpw/movies', [MovieAppController::class,'index']);
 
+Route::get('/hpw/movies/{id}', [MovieAppController::class,'show']);
+
 Route::get('/hpw/movies/search', [MovieAppController::class,'search']);
 
 

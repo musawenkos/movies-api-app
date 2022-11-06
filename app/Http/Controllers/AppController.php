@@ -44,10 +44,6 @@ class AppController extends Controller
         $homeRandMovie['genre_name'] = $this->getGenreNameList($homeRandMovie['genre_ids']);
         //dd($homeRandMovie);
 
-
-
-
-
         return view('home.index',[
             'heading' => 'Category',
             'homeRandMovie' => $homeRandMovie,

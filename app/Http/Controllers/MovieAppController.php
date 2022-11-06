@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Http;
 
 class MovieAppController extends Controller
 {
+    function getGenresName($genre){
+        $genre_name = [];
+        foreach ($genre as $key => $value) {
+            $genre_name[$key] = $value['name'];
+        }
+        return $genre_name;
+
+    }
     //Show all movies
     public function index(){
         $data = [];
@@ -28,6 +36,24 @@ class MovieAppController extends Controller
             'heading' => 'Category',
             'media' => 'movies',
             'categories' => $data
+        ]);
+    }
+
+    //Show single movie
+    public function show(Request $request){
+        $urlMovie = 'https://api.themoviedb.org/3/movie/'. $request->id .'?api_key=' . env('API_KEY');
+        $responses = Http::get($urlMovie)->json();
+
+        $urlMovie = 'https://api.themoviedb.org/3/movie/' . $responses['id'] . '/videos?api_key=' . env('API_KEY') .'&append_to_response=videos';
+        $responsesVid = Http::get($urlMovie)->json()["results"];
+
+        $responses['genre_name'] = $this->getGenresName($responses['genres']);
+
+
+        //dd($responses);
+        return view('movies.show',[
+            'movieInfo' => $responses,
+            'movieVideo' => $responsesVid
         ]);
     }
 
