@@ -14,7 +14,7 @@
                                         <div class="d-flex flex-row justify-content-sm-center">
                                             @for ($i = 0; $i < 5; $i++)
                                                 <div class="col-md-2 me-2 col-lg-2">
-                                                    <a href="/movies/{{$category[$i]['id']}}"><img src="https://image.tmdb.org/t/p/original/{{$category[$i]['poster_path']}}" height="220" width="200" alt="..." ></a>
+                                                    <a href="/tv/{{$category[$i]['id']}}"><img src="https://image.tmdb.org/t/p/original/{{$category[$i]['poster_path']}}" height="220" width="200" alt="..." ></a>
                                                     <div>
                                                         <div class="text-truncate" style="font-size: 14px; font-weight:bolder;color:white;text-align:center">{{$category[$i]['name']}}</div>
                                                         <div class="d-flex justify-content-center bg-gray bg-info mb-2 ">
@@ -22,7 +22,7 @@
                                                                 <i class="fa-solid fa-star"></i>{{$category[$i]['vote_average']}}
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                {{$category[$i]['first_air_date']}}
+                                                                {{$category[$i]['vote_count']}}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -35,7 +35,7 @@
                                         <div class="d-flex flex-row justify-content-sm-center">
                                             @for ($j = $i; $j < ($i + 5); $j++)
                                                 <div class="col-md-2 me-2 col-lg-2">
-                                                    <a href="/movies/{{$category[$j]['id']}}"><img src="https://image.tmdb.org/t/p/original/{{$category[$j]['poster_path']}}" height="220" width="190" alt="..." ></a>
+                                                    <a href="/tv/{{$category[$j]['id']}}"><img src="https://image.tmdb.org/t/p/original/{{$category[$j]['poster_path']}}" height="220" width="190" alt="..." ></a>
                                                     <div>
                                                         <div class="text-truncate" style="font-size: 14px; font-weight:bolder;color:white;text-align:center">{{$category[$j]['name']}}</div>
                                                         <div class="d-flex justify-content-center bg-gray bg-info mb-2">
@@ -43,7 +43,7 @@
                                                                 <i class="fa-solid fa-star"></i>{{$category[$j]['vote_average']}}
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                {{$category[$j]['first_air_date']}}
+                                                                {{$category[$j]['vote_count']}}
                                                             </div>
 
                                                         </div>

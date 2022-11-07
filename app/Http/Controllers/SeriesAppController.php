@@ -38,14 +38,12 @@ class SeriesAppController extends Controller
 
     public function search(Request $request){
         $query = $request->input('q');
-
-        $urlSearch = 'https://api.themoviedb.org/3/search/tv?api_key=' . env('API_KEY') . '&language=en-US&page=1&include_adult=false&query=' . $query;
-        $responses = Http::get($urlSearch)->json()["results"];
-        //dd($responses[0]["original_title"]);
+        $mediaType = 'tv';
+        $appController = new AppController();
 
         return view('series.search',[
             'query_val' => $query,
-            'results' => $responses
+            'results' => $appController->searchMedia($query,$mediaType)
         ]);
     }
 }
