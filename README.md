@@ -8,4 +8,4 @@
 
 ## Screenshot
 
-![Tux, the Linux mascot]()
+
