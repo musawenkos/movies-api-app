@@ -37,7 +37,7 @@ class MovieAppController extends Controller
     //Show single movie
     public function show(Request $request){
         $appController = new AppController();
-        $responses = $appController->getMovieAPI($request->id);
+        $responses = $appController->getMediaAPI($request->id,'movie');
 
         //dd($responses);
 
@@ -45,7 +45,7 @@ class MovieAppController extends Controller
 
         return view('movies.show',[
             'movieInfo' => $responses,
-            'movieVideo' => $appController->getRandomMovieVideo($request->id)
+            'movieVideo' => $appController->getRandomMediaVideo($request->id,'movie')
         ]);
     }
 }

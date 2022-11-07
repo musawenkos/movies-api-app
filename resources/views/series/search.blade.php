@@ -3,7 +3,7 @@
         <div class="row text-white justify-content-center vw-100 p-5" style="margin-top: 10%">
             @for ($i = 0; $i < count($results); $i++)
                 <div class="col-md-2 me-2 col-lg-2">
-                    <a href="/movies/{{$results[$i]['id']}}"><img src="https://image.tmdb.org/t/p/original/{{$results[$i]['poster_path']}}" height="220" width="200" alt="..." ></a>
+                    <a href="/hpw/series/{{$results[$i]['id']}}"><img src="https://image.tmdb.org/t/p/original/{{$results[$i]['poster_path']}}" height="220" width="200" alt="..." ></a>
                     <div>
                         <div class="text-truncate" style="font-size: 14px; font-weight:bolder;color:white;text-align:center">{{$results[$i]["name"]}}</div>
                         <div class="d-flex justify-content-center bg-gray bg-info mb-2 ">

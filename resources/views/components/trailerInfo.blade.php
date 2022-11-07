@@ -1,10 +1,10 @@
-@props(['trailerInfo','trailerVideo'])
+@props(['trailerInfo','trailerVideo','mediaType'])
 
 
 <div id="movie-trailer" class="d-flex flex-row text-white text-center vw-95 vh-100 " style=" background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)), url(https://image.tmdb.org/t/p/original/{{$trailerInfo['poster_path']}}); ">
     <div id="movie-trailer-info" class="w-50">
         <div class="align-bottom ">
-            <div class="display-6 mb-4">{{$trailerInfo['title']}}</div>
+            <div class="display-6 mb-4">{{$mediaType == 'tv' ? $trailerInfo['name'] : $trailerInfo['title']}}</div>
             <x-genres :genre_name="$trailerInfo['genre_name']"/>
             <div class="mt-4">{{$trailerInfo['overview']}}</div>
         </div>

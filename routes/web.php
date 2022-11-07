@@ -31,7 +31,9 @@ Route::get('/hpw/movies/{id}', [MovieAppController::class,'show']);
 
 Route::get('/hpw/series', [SeriesAppController::class,'index']);
 
-Route::get('/hpw/tv/search', [SeriesAppController::class,'search']);
+Route::get('/hpw/series/search', [SeriesAppController::class,'search']);
+
+Route::get('/hpw/series/{id}', [SeriesAppController::class,'show']);
 
 
 //Show Register/Create Form

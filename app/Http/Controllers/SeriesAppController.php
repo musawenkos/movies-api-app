@@ -46,4 +46,19 @@ class SeriesAppController extends Controller
             'results' => $appController->searchMedia($query,$mediaType)
         ]);
     }
+
+    //Show single tv
+    public function show(Request $request){
+        $appController = new AppController();
+        $responses = $appController->getMediaAPI($request->id,'tv');
+
+        //dd($responses);
+
+        $responses['genre_name'] = $appController->getGenresName($responses['genres']);
+
+        return view('series.show',[
+            'seriesInfo' => $responses,
+            'seriesVideo' => $appController->getRandomMediaVideo($request->id,'tv')
+        ]);
+    }
 }

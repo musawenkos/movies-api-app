@@ -51,14 +51,14 @@ class AppController extends Controller
         return $data;
     }
 
-    function getRandomMovieVideo($id){
-        $urlMovie = 'https://api.themoviedb.org/3/movie/' . $id . '/videos?api_key=' . env('API_KEY') .'&append_to_response=videos';
+    function getRandomMediaVideo($id,$mediaType){
+        $urlMovie = 'https://api.themoviedb.org/3/'. $mediaType  .'/' . $id . '/videos?api_key=' . env('API_KEY') .'&append_to_response=videos';
         $responsesVid = Http::get($urlMovie)->json()["results"];
         return $responsesVid;
     }
 
-    function getMovieAPI($id){
-        $urlMovie = 'https://api.themoviedb.org/3/movie/'. $id .'?api_key=' . env('API_KEY');
+    function getMediaAPI($id,$mediaType){
+        $urlMovie = 'https://api.themoviedb.org/3/'. $mediaType  .'/'. $id .'?api_key=' . env('API_KEY');
         $responses = Http::get($urlMovie)->json();
         return $responses;
     }
@@ -82,7 +82,7 @@ class AppController extends Controller
         return view('home.index',[
             'heading' => 'Category',
             'homeRandMovie' => $homeRandMovie,
-            'homeRandTrailer' => $this->getRandomMovieVideo($homeRandMovie['id']),
+            'homeRandTrailer' => $this->getRandomMediaVideo($homeRandMovie['id'],'movie'),
             'categories' => $movieByCategory
         ]);
     }
