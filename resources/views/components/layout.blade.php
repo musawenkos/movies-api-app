@@ -40,11 +40,16 @@
                       <li class="nav-item">
                         <a class="nav-link " href="/hpw/series">Series</a>
                       </li>
+                      @auth
+                        <li class="nav-item">
+                            <a href="/hpw/viewed" class="nav-link">Viewed Movie or TV</a>
+                        </li>
+                      @endauth
                     </ul>
                   </div>
                   <div class="d-flex">
                     @auth
-                        <button class="btn btn-info fs-5 text-white disabled"><i class="fa fa-user" aria-hidden="true"></i> {{' ' . auth()->user()->name}}</button>
+                        <button class="btn btn-info fs-5 text-white disabled me-2"><i class="fa fa-user" aria-hidden="true"></i> {{' ' . auth()->user()->name}}</button>
                         <form method="POST" action="/logout" class="inline">
                             @csrf
                             <button class="btn btn-danger fs-5 text-white ms-2" type="submit" >

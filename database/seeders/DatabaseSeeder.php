@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        /* GenreList::create([
+        GenreList::create([
             'id' => 28,
             'name' => 'Action'
         ]);
@@ -105,6 +105,6 @@ class DatabaseSeeder extends Seeder
         GenreList::create([
             'id' => 37,
             'name' => 'Western'
-        ]); */
+        ]);
     }
 }

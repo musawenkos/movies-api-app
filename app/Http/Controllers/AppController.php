@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\GenreList;
+use App\Models\ViewedMedia;
 use Illuminate\Http\Request;
 use Illuminate\Http\Client\Pool;
 use Illuminate\Support\Facades\Http;
@@ -10,6 +11,17 @@ use Illuminate\Support\Facades\Http;
 
 class AppController extends Controller
 {
+
+    function addViewedMedia($id, $mediaType ,$authID){
+        $media = ViewedMedia::where('media_id', $id)->where('user_id',$authID)->get();
+        if (count($media) == 0) {
+            ViewedMedia::create([
+                "media_id" => $id,
+                "type_media" => $mediaType,
+                "user_id" => $authID
+            ]);
+        }
+    }
 
     function getGenresName($genre){
         $genre_name = [];
@@ -41,6 +53,8 @@ class AppController extends Controller
         });
         return $responses;
     }
+
+
 
     function getMoviesByCategories(){
         $data = [];
@@ -86,6 +100,45 @@ class AppController extends Controller
             'categories' => $movieByCategory
         ]);
     }
+
+    public function show(){
+        $data = [];
+
+        $viewedMedia = ViewedMedia::where('user_id',auth()->id())->get();
+        //dd($viewedMedia[0]['type_media']);
+        for ($i=0; $i < count($viewedMedia); $i++) {
+            if ($viewedMedia[$i]['type_media'] == 'movie') {
+                $movieData = $this->getMediaAPI($viewedMedia[$i]['media_id'],'movie');
+                $data[$i] = [
+                    'id' => $movieData['id'],
+                    'title' => $movieData['title'],
+                    'poster_path' => $movieData['poster_path'],
+                    'vote_average' => $movieData['vote_average'],
+                    'date' => $movieData['release_date'],
+                    'media_type' => 'movies'
+                ];
+            }else{
+                $movieData = $this->getMediaAPI($viewedMedia[$i]['media_id'],'tv');
+                $data[$i] = [
+                    'id' => $movieData['id'],
+                    'title' => $movieData['name'],
+                    'poster_path' => $movieData['poster_path'],
+                    'vote_average' => $movieData['vote_average'],
+                    'date' => $movieData['first_air_date'],
+                    'media_type' => 'series'
+                ];
+            }
+        }
+
+        //dd($data);
+
+
+        return view('home.viewed',[
+            'results' => $data
+        ]);
+    }
+
+
 
 
 }

@@ -20,12 +20,14 @@ use App\Http\Controllers\SeriesAppController;
 
 Route::get('/', [AppController::class,'index']);
 
+Route::get('/hpw/viewed', [AppController::class,'show'])->middleware('auth');
+
 
 Route::get('/hpw/movies', [MovieAppController::class,'index']);
 
 Route::get('/hpw/movies/search', [MovieAppController::class,'search']);
 
-Route::get('/hpw/movies/{id}', [MovieAppController::class,'show']);
+Route::get('/hpw/movies/{id}', [MovieAppController::class,'show'])->middleware('auth');
 
 
 
@@ -33,7 +35,8 @@ Route::get('/hpw/series', [SeriesAppController::class,'index']);
 
 Route::get('/hpw/series/search', [SeriesAppController::class,'search']);
 
-Route::get('/hpw/series/{id}', [SeriesAppController::class,'show']);
+Route::get('/hpw/series/{id}', [SeriesAppController::class,'show'])->middleware('auth');
+
 
 
 //Show Register/Create Form

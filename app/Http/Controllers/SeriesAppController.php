@@ -53,6 +53,7 @@ class SeriesAppController extends Controller
         $responses = $appController->getMediaAPI($request->id,'tv');
 
         //dd($responses);
+        $appController->addViewedMedia($request->id,'tv',auth()->id());
 
         $responses['genre_name'] = $appController->getGenresName($responses['genres']);
 

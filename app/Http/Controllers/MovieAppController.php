@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\GenreList;
+use App\Models\ViewedMedia;
 use Illuminate\Http\Request;
 use Illuminate\Http\Client\Pool;
 use Illuminate\Support\Facades\Http;
@@ -39,6 +40,7 @@ class MovieAppController extends Controller
         $appController = new AppController();
         $responses = $appController->getMediaAPI($request->id,'movie');
 
+        $appController->addViewedMedia($request->id,'movie',auth()->id());
         //dd($responses);
 
         $responses['genre_name'] = $appController->getGenresName($responses['genres']);
